@@ -1,0 +1,120 @@
+<html>
+<head>
+<style type="text/css" >
+body { background: green;
+}
+#karten { border: 3px;
+	margin-left: 25%;
+		margin-top: 25%;
+
+}
+
+
+</style>
+<script type="text/javascript" >
+
+var kartenfeld = 0;
+var karte = new Array(52);
+for(var i = 0;i<51;i++){
+
+	karte[i] = 0;
+
+}
+// KArten verteilen 
+
+
+
+
+function getRandom(min, max) {
+ if(min > max) {
+  return -1;
+ }
+ if(min == max) {
+  return min;
+ }
+ var r;
+ do {
+  r = Math.random();
+ }
+ while(r == 1.0); 
+ return min + parseInt(r * (max-min+1));
+}
+
+
+function neuKarte(){
+
+	do{
+		k = getRandom(1,52);
+	}while(karte[k] == 1);
+
+	karte[k] == 1;
+	return (k);
+
+}
+
+
+
+function auswhal(feld){
+var kwert = neuKarte();
+var bild = new Image();
+	bild.src = "bilder/"+kwert+".jpg";
+	
+
+	
+if (kartenfeld == 0){
+	var kwert = neuKarte();
+	var bild = new Image();
+	bild.src = "bilder/"+kwert+".jpg";
+	document.all.bildfeld1.src = bild.src;
+	kartenfeld = kartenfeld + 1;
+}
+      else if (kartenfeld == 1){
+	var kwert = neuKarte();
+	var bild = new Image();
+	bild.src = "bilder/"+kwert+".jpg";
+  	document.all.bildfeld2.src = bild.src;
+	kartenfeld = kartenfeld + 1;
+}
+     else if (kartenfeld == 2){
+    var kwert = neuKarte();
+    var bild = new Image();
+	bild.src = "bilder/"+kwert+".jpg"; 	
+	document.all.bildfeld3.src = bild.src;
+	kartenfeld = kartenfeld + 1;
+
+}
+    else if (kartenfeld == 3){
+    var kwert = neuKarte();
+	var bild = new Image();
+	bild.src = "bilder/"+kwert+".jpg";	
+	document.all.bildfeld4.src = bild.src;
+	kartenfeld = kartenfeld + 1;
+
+}
+	else{
+		var kwert = neuKarte();
+		var bild = new Image();
+		bild.src = "bilder/"+kwert+".jpg";
+		document.all.bildfeld5.src = bild.src;
+        kartenfeld = kartenfeld + 1;
+
+}
+
+}
+
+</script>
+
+</head>
+<body>
+	<div id="karten">
+<img src="bilder/g.jpg" class="karten" name="bildfeld1" height="140" widht="100" > 
+<img src="bilder/g.jpg" class="karten"  name="bildfeld2" height="140" widht="100" > 
+<img src="bilder/g.jpg" class="karten"  name="bildfeld3" height="140" widht="100"  > 
+<img src="bilder/g.jpg" class="karten"  name="bildfeld4" height="140" widht="100" >
+<img src="bilder/g.jpg" class="karten"  name="bildfeld5" height="140" widht="100"  >  
+<br> 
+<input type="button" value="Gib mir ne Karte..." onClick="auswhal()" >
+</div>
+</body>
+</html>
+
